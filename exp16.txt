@@ -1,0 +1,39 @@
+//Create a web page using HTML and JavaScript where an image moves across the screen form left to right continuously.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moving Image</title>
+<style>
+body {
+margin: 0;
+overflow: hidden; /* Prevent scrollbar from appearing */
+}
+#movingImage { position: absolute;
+width: 100px; /* Set the width of the image */ height: auto; /* Maintain aspect ratio */
+}
+</style>
+</head>
+<body>
+<img id="movingImage" src="https://via.placeholder.com/100" alt="Moving Image">
+
+<script>
+const image = document.getElementById('movingImage'); let position = 0; // Starting position
+
+function moveImage() {
+position += 2; // Increment position
+image.style.left = position + 'px'; // Set the new position
+
+// Reset position when the image goes off the screen if (position > window.innerWidth) {
+position = -100; // Move back to the left side (off-screen)
+}
+
+requestAnimationFrame(moveImage); // Call the function again
+}
+
+moveImage(); // Start moving the image
+</script>
+</body>
+</html>
+

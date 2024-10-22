@@ -1,0 +1,32 @@
+//Write a class component with constructure to update state in react using state and props. Ans:-
+import React, { Component } from 'react';
+
+class Greeting extends Component { constructor(props) {
+super(props);
+// Initialize state this.state = {
+name: this.props.name || 'Guest'
+};
+}
+
+// Method to update state based on input handleChange = (event) => {
+this.setState({ name: event.target.value });
+};
+
+render() { return (
+<div style={{ textAlign: 'center', marginTop: '50px' }}>
+<h1>Hello, {this.state.name}!</h1>
+<input
+type="text" value={this.state.name} onChange={this.handleChange} placeholder="Enter your name"
+/>
+</div>
+);
+// Main App component
+class App extends Component { render() {
+return (
+<div>
+<Greeting name="User" />
+</div>
+);
+}
+}
+

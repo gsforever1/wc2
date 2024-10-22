@@ -1,0 +1,78 @@
+//i)Write the code to process online Alumni information for your college.Create a form to get a nane,date of birth and email id. Use check boxes for taking hobbies and radio buttons for selecting branch.Write JavaScript code to validate the following. -User has to fill all the fields prior to the form submission -Valid email id (@ and .) -Age validation using DOB(>=22 years) -Password length should not less than 6.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alumni Information Form</title>
+<style>
+body {
+display: flex;
+justify-content: center; align-items: center; height: 100vh;
+flex-direction: column;
+font-family: Arial, sans-serif;
+}
+form {
+display: flex;
+flex-direction: column; width: 300px;
+}
+input, select { margin: 10px 0; padding: 10px; font-size: 16px;
+}
+button {
+padding: 10px; font-size: 16px; cursor: pointer;
+}
+</style>
+</head>
+<body>
+<h1>Alumni Information Form</h1><form id="alumniForm">
+<input type="text" id="name" placeholder="Name" required>
+<input type="date" id="dob" required>
+<input type="email" id="email" placeholder="Email" required>
+<div>
+<strong>Select Branch:</strong>
+<label><input type="radio" name="branch" value="CSE" required> CSE</label>
+<label><input type="radio" name="branch" value="ECE" required> ECE</label>
+<label><input type="radio" name="branch" value="ME" required> ME</label>
+</div>
+<div>
+<strong>Select Hobbies:</strong><br>
+<label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+<label><input type="checkbox" name="hobbies" value="Traveling"> Traveling</label>
+<label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+</div>
+<input type="password" id="password" placeholder="Password" required>
+<button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById('alumniForm').addEventListener('submit', function(event) { event.preventDefault(); // Prevent form submission for validation
+
+const name = document.getElementById('name').value; const dob = document.getElementById('dob').value; const email = document.getElementById('email').value;
+const password = document.getElementById('password').value;
+
+// Validate all fields
+if (!name || !dob || !email || !password) { alert("Please fill all fields.");
+return;
+}
+
+// Validate email format
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; if (!emailPattern.test(email)) {
+alert("Please enter a valid email address."); return;
+}
+
+// Validate age (22 years or older) const birthDate = new Date(dob); const today = new Date();
+const age = today.getFullYear() - birthDate.getFullYear();
+const monthDifference = today.getMonth() - birthDate.getMonth(); if (age < 22 || (age === 22 && monthDifference < 0)) {
+alert("You must be at least 22 years old."); return;
+}// Validate password length if (password.length < 6) {
+alert("Password must be at least 6 characters long."); return;
+}
+
+// If all validations pass, you can process the form data alert("Form submitted successfully!");
+// Here you can add code to send the form data to the server
+});
+</script>
+</body>
+</html>
+

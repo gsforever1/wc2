@@ -1,0 +1,35 @@
+//Write a javascript to accept two numbers and display their sum using pop up box. 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sum of Two Numbers</title>
+<style>
+body {
+display: flex;
+justify-content: center; align-items: center; height: 100vh;
+flex-direction: column;
+}
+button {
+padding: 10px 20px; font-size: 16px; cursor: pointer;
+}</style>
+</head>
+<body>
+<button onclick="calculateSum()">Calculate Sum</button>
+
+<script>
+function calculateSum() {
+// Prompt the user for two numbers
+const num1 = parseFloat(prompt("Enter the first number:")); const num2 = parseFloat(prompt("Enter the second number:"));
+
+// Check if the inputs are valid numbers if (isNaN(num1) || isNaN(num2)) {
+alert("Please enter valid numbers.");
+} else {
+const sum = num1 + num2; // Calculate the sum alert("The sum is: " + sum); // Display the sum in a popup
+}
+}
+</script>
+</body>
+</html>
+

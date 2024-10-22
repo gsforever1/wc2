@@ -1,0 +1,25 @@
+//Write acode making use of React Hooks that displays four buttons
+namely ,”Red”,”Blue”,”Green”,”Yellow”. On clicking any of these buttons,the code display the message that you have selected that particular color.
+import React, { useState } from 'react';
+
+const App = () => {
+// State to hold the selected color message
+const [selectedColor, setSelectedColor] = useState('');
+
+// Function to handle button click const handleColorClick = (color) => {
+setSelectedColor(`You have selected ${color}!`);
+};return (
+<div style={{ textAlign: 'center', marginTop: '50px' }}>
+<h1>Select a Color</h1>
+<div>
+<button onClick={() => handleColorClick('Red')}>Red</button>
+<button onClick={() => handleColorClick('Blue')}>Blue</button>
+<button onClick={() => handleColorClick('Green')}>Green</button>
+<button onClick={() => handleColorClick('Yellow')}>Yellow</button>
+</div>
+{selectedColor && <p>{selectedColor}</p>}
+</div>
+);
+};
+
+export default App;

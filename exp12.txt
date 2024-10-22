@@ -1,0 +1,35 @@
+//Create one class components “Car” in React and invoke it using index.js it 
+// src/Car.js
+import React, { Component } from 'react';
+
+class Car extends Component { render() {const { make, model, year } = this.props; // Destructure props return (
+<div style={{ textAlign: 'center', marginTop: '50px' }}>
+<h1>Car Details</h1>
+<p>Make: {make}</p>
+<p>Model: {model}</p>
+<p>Year: {year}</p>
+</div>
+);
+}
+}
+
+export default Car;
+
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom'; import App from './App';
+import Car from './Car'; // Import the Car component
+
+// Create a simple App component to render Car const App = () => {
+return (
+<div>
+<Car make="Toyota" model="Camry" year="2020" />
+</div>
+);
+};
+// Render the App component ReactDOM.render(
+<React.StrictMode>
+<App />
+</React.StrictMode>, document.getElementById('root')
+);
+

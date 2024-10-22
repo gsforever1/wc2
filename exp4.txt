@@ -1,0 +1,26 @@
+//Demonstrate its use by writing the code which create a simple text file with the data provided by the user.
+Ans:-
+const fs = require('fs');
+const readline = require('readline');
+
+// Create an interface for reading input const rl = readline.createInterface({
+input: process.stdin, output: process.stdout
+});
+
+// Function to prompt user for input and write to file function createFileWithUserInput() {
+rl.question('Please enter the content you want to write to the file: ', (userInput) => {
+// Define the file name
+const fileName = 'output.txt';
+
+// Write user input to the file fs.writeFile(fileName, userInput, (err) => {
+if (err) {
+console.error('Error writing to file:', err);
+} else {
+console.log(`Successfully wrote to ${fileName}`);
+}
+// Close the readline interface rl.close();
+});
+});
+}
+
+// Call the function createFileWithUserInput();

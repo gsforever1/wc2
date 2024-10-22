@@ -1,0 +1,18 @@
+//Explain React JSX with suitable react examples such as rendering the greeting message “Hello! Welcome to React”
+Ans:-
+import React from 'react';
+
+function Greeting() { return (
+<h1>Hello! Welcome to React</h1>
+);s
+}
+
+function App() { return (
+<div>
+<Greeting />
+</div>
+);
+}
+
+export default App;
+

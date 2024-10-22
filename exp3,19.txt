@@ -1,0 +1,19 @@
+//Write a Javascript to accept a number from the user and check if it is even or not.
+// Function to check if a number is even function checkEvenOrOdd() {
+// Prompt the user for input
+const input = prompt("Please enter a number:");
+
+// Convert the input to a number const number = parseFloat(input);
+
+// Check if the input is a valid number if (isNaN(number)) {
+alert("That's not a valid number. Please try again.");return;
+}
+
+// Check if the number is even if (number % 2 === 0) {
+alert(`${number} is an even number.`);
+} else {
+alert(`${number} is an odd number.`);
+}
+}
+
+// Call the function checkEvenOrOdd();

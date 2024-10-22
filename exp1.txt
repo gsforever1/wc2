@@ -1,0 +1,11 @@
+//Write an asynchronous file reading node Js program Ans:-
+const fs = require('fs').promises;
+
+async function readFileAsync(filePath) { try {
+const data = await fs.readFile(filePath, 'utf8'); console.log('File Contents:'); console.log(data);
+} catch (error) {
+console.error('Error reading file:', error);
+}
+}
+
+// Specify the path to your file const filePath = './example.txt'; readFileAsync(filePath);

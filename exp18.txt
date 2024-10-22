@@ -1,0 +1,42 @@
+//Write a JavasScript code to set a cookie in the user’s computer 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Set Cookie Example</title>
+<style>
+body {
+display: flex;
+justify-content: center; align-items: center; height: 100vh;
+flex-direction: column;
+}
+button {
+padding: 10px 20px; font-size: 16px; cursor: pointer;
+}
+</style></head>
+<body>
+<button onclick="setCookie('username', 'JohnDoe', 7)">Set Cookie</button>
+<button onclick="alert(getCookie('username'))">Get Cookie</button>
+
+<script>
+function setCookie(name, value, days) { let expires = "";
+if (days) {
+const date = new Date();
+date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); expires = "; expires=" + date.toUTCString();
+}
+document.cookie = name + "=" + (value || "") + expires + "; path=/"; alert("Cookie set: " + name + "=" + value);
+}
+
+function getCookie(name) { const nameEQ = name + "=";
+const ca = document.cookie.split(';'); for (let i = 0; i < ca.length; i++) {
+let c = ca[i];
+while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+}
+return null; // Return null if cookie not found
+}
+</script>
+</body>
+</html>
+
